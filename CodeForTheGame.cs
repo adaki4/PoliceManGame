@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Reflection.Emit;
 
 namespace pb006 {
 
@@ -8,47 +9,126 @@ namespace pb006 {
     {
         private static readonly char[] AllowedMoves = {'a', 's', 'w', 'd', 'x', 'r', 'q'};
         private List<GameObject> objs;
+        private Player player;
+        private Target finish;
         private List<List<GameObject>> board;
 
-        public Game(string[] map)
+        private Random random = new Random();
+
+        public Game(int width, int height)
         {
-            int height = map.Length;
-            int width = 0;
+            // int height = map.Length;
+            // int width = 0;
 
             objs = new List<GameObject>();
 
-            for (int y = 0; y < map.Length; y++)
-            {
-                width = Math.Max(width, map[y].Length);
+            // for (int y = 0; y < map.Length; y++)
+            // {
+            //     width = Math.Max(width, map[y].Length);
 
-                for (int x = 0; x < map[y].Length; x++)
-                {
-                    Position newPosition = new Position(x, y);
+            //     for (int x = 0; x < map[y].Length; x++)
+            //     {
+            //         Position newPosition = new Position(x, y);
 
-                    switch (map[y][x])
-                    {
-                        case '#': objs.Add(new Wall(newPosition)); break;
-                        case '.': objs.Add(new Target(newPosition)); break;
-                        case '^': objs.Add(new Agent(newPosition, Direction.North)); break;
-                        case '>': objs.Add(new Agent(newPosition, Direction.East)); break;
-                        case 'v': objs.Add(new Agent(newPosition, Direction.South)); break;
-                        case '<': objs.Add(new Agent(newPosition, Direction.West)); break;
-                        case 'o': objs.Add(new Player(newPosition)); break;
-                        case 'X': objs.Add(new Crate(newPosition)); break;
-                        case 'x': objs.Add(new Crate(newPosition)); objs.Add(new Target(newPosition)); break;
-                    }
-                }
-            }
+            //         switch (map[y][x])
+            //         {
+            //             case '#': objs.Add(new Wall(newPosition)); break;
+            //             case '.': objs.Add(new Target(newPosition)); break;
+            //             case '^': objs.Add(new Agent(newPosition, Direction.North)); break;
+            //             case '>': objs.Add(new Agent(newPosition, Direction.East)); break;
+            //             case 'v': objs.Add(new Agent(newPosition, Direction.South)); break;
+            //             case '<': objs.Add(new Agent(newPosition, Direction.West)); break;
+            //             case 'o': objs.Add(new Player(newPosition)); break;
+            //             case 'X': objs.Add(new Crate(newPosition)); break;
+            //             case 'x': objs.Add(new Crate(newPosition)); objs.Add(new Target(newPosition)); break;
+            //         }
+            //     }
+            // }
 
+            InitBoard(width, height);
+            FillMaze();
+            SetObjectsToBoard();
+        }
+
+        public void InitBoard(int width, int height) {
             board = new List<List<GameObject>>();
+            
             for (int y = 0; y < height; y++) {
                 List<GameObject> row = new List<GameObject>();
+                
                 for (int x = 0; x < width; x++)
-                    row.Add(null);
+                    if (x == 0 || y == 0 || x == width - 1 || y == height -1) {
+                        Position newPosition = new Position(x, y);
+                        var o = new Wall(newPosition);
+                        row.Add(o);
+                        objs.Add(o);
+                    }
+                    else {
+                        row.Add(null);
+                    }
+                
                 board.Add(row);
             }
 
-            SetObjectsToBoard();
+            player = new Player(new Position(1, 1));
+            board[player.Position.y][player.Position.x] = player;
+            objs.Add(player);
+            
+            finish = new Target(new Position(width - 2, height - 2));
+            board[finish.Position.y][finish.Position.x] = finish;
+            objs.Add(finish);
+        }
+
+        private void FillMaze() {
+            for (int y = 2; y < board.Count - 2; y += 2) {
+                for (int x = 2; x < board[0].Count - 2; x += 2) {
+                    if (board[y][x] != null) {
+                        continue;
+                    }
+                    FillLine(new Position(x, y));
+                }
+            }
+        }
+
+        private void FillLine(Position start) {
+            var w = new Wall(start);
+            objs.Add(w);
+            board[start.y][start.x] = w;
+            
+            Array values = Enum.GetValues(typeof(Direction));
+            Direction randomDir = (Direction)values.GetValue(random.Next(values.Length));
+
+            int maxDist = 0;
+
+            switch (randomDir) {
+                case Direction.East: {
+                    maxDist = start.x;
+                    break;
+                }
+                case Direction.North: {
+                    maxDist = start.y;
+                    break;
+                }
+                case Direction.West: {
+                    maxDist = board[0].Count - start.x;
+                    break;
+                }
+                case Direction.South: {
+                    maxDist = board.Count - start.y;
+                    break;
+                }
+            }
+           
+            for (int i = 0; i < random.Next(maxDist); i++) {
+                start = start.Step(randomDir);
+                if (GetFromBoard(start) is Wall) {
+                    return;
+                }
+                w = new Wall(start);
+                objs.Add(w);
+                board[start.y][start.x] = w;
+            }
+            
         }
 
         private void SetObjectsToBoard()
@@ -73,10 +153,11 @@ namespace pb006 {
 
         public bool GameEnded()
         {
-            List<Position> cratePositions = objs.Where(o => o is Crate).Select(c => c.Position).ToList();
-            List<Position> targetPositions = objs.Where(o => o is Target).Select(t => t.Position).ToList();
+            // List<Position> cratePositions = objs.Where(o => o is Crate).Select(c => c.Position).ToList();
+            // List<Position> targetPositions = objs.Where(o => o is Target).Select(t => t.Position).ToList();
 
-            return cratePositions.Count == targetPositions.Count && cratePositions.All(targetPositions.Contains);
+            // return cratePositions.Count == targetPositions.Count && cratePositions.All(targetPositions.Contains);
+            return player.Position.Equals(finish.Position);
         }
 
         public void ShowBoard()
@@ -87,11 +168,15 @@ namespace pb006 {
             {
                 foreach(GameObject obj in row)
                 {
-                    if (obj == null)
+                    if (obj == null) {
                         Console.Write(" ");
-                    else
+                        Console.Write(" ");
+                    }
+
+                    else {
                         Console.Write(obj.Repr());
-                    Console.Write(" ");
+                        Console.Write(obj.Repr());
+                    }
                 }
                 Console.Write("\n");
             }
@@ -278,7 +363,7 @@ namespace pb006 {
                 "########"
             };
 
-            GameLoop(new Game(hard));
+            GameLoop(new Game(21, 21));
         }
     }
 }

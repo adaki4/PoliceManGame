@@ -65,7 +65,7 @@ namespace pb006
         {
             Position = new Position(position.x, position.y);
             initialPosition = new Position(position.x, position.y);
-            objectRepr = '#';
+            objectRepr = '█';
         }
     }
 
@@ -173,6 +173,7 @@ namespace pb006
                 }
             }
         }
+        
         // public  static void Main(string[] args)
         // {
         //     StaticObject staticObjectWall = new Wall(new Position(0, 0));
