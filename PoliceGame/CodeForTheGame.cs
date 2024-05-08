@@ -244,17 +244,17 @@ namespace pb006 {
         {
             foreach (GameObject obj in objs)
             {
-                if (obj is Agent a)
-                {
-                    foreach (var entry in GetNeighborhood(a.Position))
-                    {
-                        if (entry.Value is Agent o) {
-                            Direction? thisDir = a.Direction;
-                            Direction? otherDir = o.Direction;
+                if (!(obj is Agent a)) {
+                    continue;
+                }
 
-                            if (thisDir != null && entry.Key == thisDir.Value)
-                                return true;
-                        }
+                foreach (var entry in GetNeighborhood(a.Position)) {
+                    if (entry.Value is Agent o) {
+                        Direction? thisDir = a.Direction;
+                        Direction? otherDir = o.Direction;
+
+                        if (thisDir != null && entry.Key == thisDir.Value)
+                            return true;
                     }
                 }
             }

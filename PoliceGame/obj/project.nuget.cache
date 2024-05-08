@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pWe2FSm83MDQ5LdFhiy+fKDv6YSgy3GkpctbKWo9stYpev2tPoyNFDL0pRmKT72+RF8ZvqgiT834Bdz+0WaLRA==",
+  "dgSpecHash": "E3x4IBAREDCVqrvEa8wslZm8uMaCtIOahF5J3PCGEPafaRuicOpcaKRgW1j2M9s1VnTDz6NMf67ftyOhh13rXA==",
   "success": true,
-  "projectFilePath": "c:\\MUNI\\fi\\erasmus\\AI games\\PoliceManGame\\PoliceGame\\PoliceGame.csproj",
+  "projectFilePath": "/home/martin/PoliceManGame/PoliceGame/PoliceGame.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

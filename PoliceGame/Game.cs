@@ -108,12 +108,12 @@ namespace pb006
                 Position currentPos = queue.Dequeue();
                 foreach (Direction dir in Enum.GetValues(typeof(Direction))) {
                     Position possiblePos = currentPos.Step(dir);
-                    if (board[possiblePos.x][possiblePos.y] is Player) {
+                    if (board[possiblePos.y][possiblePos.x] is Player) {
                         visited[possiblePos.x, possiblePos.y] = true;
                         values[possiblePos.x, possiblePos.y] = values[currentPos.x, currentPos.y] + 1;
                         return ShortestPath(values, possiblePos);
                     }
-                    if (board[possiblePos.x][possiblePos.y] is not Wall && visited[possiblePos.x, possiblePos.y] == false) {
+                    if (board[possiblePos.y][possiblePos.x] is not Wall && visited[possiblePos.x, possiblePos.y] == false) {
                         queue.Enqueue(possiblePos);
                         visited[possiblePos.x, possiblePos.y] = true;
                         values[possiblePos.x, possiblePos.y] = values[currentPos.x, currentPos.y] + 1;

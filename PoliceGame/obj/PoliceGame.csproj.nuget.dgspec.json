@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "c:\\MUNI\\fi\\erasmus\\AI games\\PoliceManGame\\PoliceGame\\PoliceGame.csproj": {}
+    "/home/martin/PoliceManGame/PoliceGame/PoliceGame.csproj": {}
   },
   "projects": {
-    "c:\\MUNI\\fi\\erasmus\\AI games\\PoliceManGame\\PoliceGame\\PoliceGame.csproj": {
+    "/home/martin/PoliceManGame/PoliceGame/PoliceGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\MUNI\\fi\\erasmus\\AI games\\PoliceManGame\\PoliceGame\\PoliceGame.csproj",
+        "projectUniqueName": "/home/martin/PoliceManGame/PoliceGame/PoliceGame.csproj",
         "projectName": "PoliceGame",
-        "projectPath": "c:\\MUNI\\fi\\erasmus\\AI games\\PoliceManGame\\PoliceGame\\PoliceGame.csproj",
-        "packagesPath": "C:\\Users\\0107a\\.nuget\\packages\\",
-        "outputPath": "c:\\MUNI\\fi\\erasmus\\AI games\\PoliceManGame\\PoliceGame\\obj\\",
+        "projectPath": "/home/martin/PoliceManGame/PoliceGame/PoliceGame.csproj",
+        "packagesPath": "/home/martin/.nuget/packages/",
+        "outputPath": "/home/martin/PoliceManGame/PoliceGame/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\0107a\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/martin/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -32,11 +32,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -58,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.103/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
