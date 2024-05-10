@@ -1,0 +1,85 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\efeli\\Documents\\GitHub\\PoliceManGame\\PoliceGame\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F8AF1F93-CB7A-4F73-A53E-60D7FDF6C991}|PoliceGame.csproj|c:\\users\\efeli\\documents\\github\\policemangame\\policegame\\codeforthegame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8AF1F93-CB7A-4F73-A53E-60D7FDF6C991}|PoliceGame.csproj|solutionrelative:codeforthegame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8AF1F93-CB7A-4F73-A53E-60D7FDF6C991}|PoliceGame.csproj|c:\\users\\efeli\\documents\\github\\policemangame\\policegame\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8AF1F93-CB7A-4F73-A53E-60D7FDF6C991}|PoliceGame.csproj|solutionrelative:game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8AF1F93-CB7A-4F73-A53E-60D7FDF6C991}|PoliceGame.csproj|c:\\users\\efeli\\documents\\github\\policemangame\\policegame\\structures.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8AF1F93-CB7A-4F73-A53E-60D7FDF6C991}|PoliceGame.csproj|solutionrelative:structures.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Structures.cs",
+              "DocumentMoniker": "C:\\Users\\efeli\\Documents\\GitHub\\PoliceManGame\\PoliceGame\\Structures.cs",
+              "RelativeDocumentMoniker": "Structures.cs",
+              "ToolTip": "C:\\Users\\efeli\\Documents\\GitHub\\PoliceManGame\\PoliceGame\\Structures.cs",
+              "RelativeToolTip": "Structures.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-10T10:48:30.01Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CodeForTheGame.cs",
+              "DocumentMoniker": "C:\\Users\\efeli\\Documents\\GitHub\\PoliceManGame\\PoliceGame\\CodeForTheGame.cs",
+              "RelativeDocumentMoniker": "CodeForTheGame.cs",
+              "ToolTip": "C:\\Users\\efeli\\Documents\\GitHub\\PoliceManGame\\PoliceGame\\CodeForTheGame.cs",
+              "RelativeToolTip": "CodeForTheGame.cs",
+              "ViewState": "AQIAAPwAAAAAAAAAAAASwA8BAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-10T09:43:19.725Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Game.cs",
+              "DocumentMoniker": "C:\\Users\\efeli\\Documents\\GitHub\\PoliceManGame\\PoliceGame\\Game.cs",
+              "RelativeDocumentMoniker": "Game.cs",
+              "ToolTip": "C:\\Users\\efeli\\Documents\\GitHub\\PoliceManGame\\PoliceGame\\Game.cs",
+              "RelativeToolTip": "Game.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAQwFQAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-10T09:42:18.942Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 77,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{a80febb4-e7e0-4147-b476-21aaf2453969}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

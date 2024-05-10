@@ -242,23 +242,72 @@ namespace pb006 {
 
         public bool AgentsCollide()
         {
-            foreach (GameObject obj in objs)
+            //foreach (GameObject obj in objs)
+            //{
+            //    if (!(obj is Agent a))
+            //    {
+            //        continue;
+            //    }
+
+            //    foreach (var entry in GetNeighborhood(a.Position))
+            //    {
+            //        if (entry.Value is Agent o)
+            //        {
+            //            //Direction? thisDir = a.Direction;
+            //            //Direction? otherDir = o.Direction;
+
+
+            //            //if (thisDir != null && o.Position.Step(o.Direction.Value) == a.Position)
+            //                return true;
+            //        }
+            //    }
+            //}
+            //return false;
+
+            foreach (var entry in GetNeighborhood(player.Position))
             {
-                if (!(obj is Agent a)) {
-                    continue;
-                }
-
-                foreach (var entry in GetNeighborhood(a.Position)) {
-                    if (entry.Value is Agent o) {
-                        Direction? thisDir = a.Direction;
-                        Direction? otherDir = o.Direction;
-
-                        if (thisDir != null && entry.Key == thisDir.Value)
-                            return true;
-                    }
+                if(entry.Value is Agent)
+                {
+                    return true;
                 }
             }
             return false;
+
+            //foreach (GameObject obj in objs)
+            //{
+            //    if (!(obj is Agent a))
+            //    {
+            //        continue;
+            //    }
+
+                //    //foreach (var entry in GetNeighborhood(a.Position))
+                //    //{
+
+                //    //    if (entry.Value is Agent o)
+                //    //    {
+
+                //foreach(Agent o in agents) {
+                //        if (o == a) continue;
+                //            Direction? thisDir = a.Direction;
+                //            Direction? otherDir = o.Direction;
+
+                //        Position nextPosition = o.Position.Step(o.Direction.Value);
+                //        Position nextPositiona=a.Position.Step(a.Direction.Value);
+                //            if (thisDir != null && nextPosition == nextPositiona)
+                //                return true;
+                //        }
+
+                //}
+                //return false;
+
+                //foreach (Agent agent in agents)
+                //{
+                //    if(agent!=player&& (agent.Position == player.Position.Step(player.Direction.Value) || (agent.Position==player.Position.Step(player.Direction.Value)))
+                //    {
+                //        return true;
+                //    }
+                //}
+                //return false;
         }
 
         public void Update()
@@ -285,10 +334,11 @@ namespace pb006 {
 
         public static void GameLoop(Game g)
         {
-            while (!g.GameEnded())
+            bool caughtByPolice = false;
+            while (!g.GameEnded()&&!caughtByPolice)
             {
                 g.ShowBoard();
-
+                Console.Write(caughtByPolice);
                 char move = GetNextPlayerMove();
                 if (move == 'r') {
                     g.Reset();
@@ -299,15 +349,17 @@ namespace pb006 {
                 }
                 g.SetPlayerDirection(MoveToDirection(move));
 
+                g.Update();
+
                 if (g.AgentsCollide())
                     break;
-
-                g.Update();
             }
-
             g.ShowBoard();
+
             if (g.AgentsCollide())
-                Console.WriteLine("Agents collided.");
+            {
+                Console.WriteLine("Agents collided."); caughtByPolice = true;
+            }
             else
                 Console.WriteLine("Solved!");
         }

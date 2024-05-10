@@ -1,3 +1,5 @@
+using System.Net;
+
 namespace pb006 {
     public struct Position
     {
@@ -21,6 +23,15 @@ namespace pb006 {
         public override string ToString()
         {
             return "(" + x + ", " + y + ")";
+        }
+
+        public static bool operator ==(Position p1, Position p2)
+        {
+            return ((p1.x == p2.x) && (p1.y == p2.y));
+        }
+        public static bool operator !=(Position p1, Position p2)
+        {
+            return !((p1.x == p2.x) && (p1.y == p2.y));
         }
     }
 
