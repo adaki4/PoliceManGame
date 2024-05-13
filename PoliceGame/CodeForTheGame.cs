@@ -264,10 +264,17 @@ namespace pb006 {
             //}
             //return false;
 
-            foreach (var entry in GetNeighborhood(player.Position))
-            {
-                if(entry.Value is Agent)
-                {
+            // foreach (var entry in GetNeighborhood(player.Position))
+            // {
+            //     if (entry.Value is Agent)
+            //     {
+            //         return true;
+            //     }
+                
+            // }
+
+            foreach (Agent agent in agents) {
+                if (agent.Position == player.Position) {
                     return true;
                 }
             }
@@ -352,7 +359,7 @@ namespace pb006 {
                 g.Update();
 
                 if (g.AgentsCollide())
-                    break;
+                    caughtByPolice = true;
             }
             g.ShowBoard();
 

@@ -130,15 +130,12 @@ namespace pb006
             foreach (Direction dir in Enum.GetValues(typeof(Direction))) {
                 Position possiblePos = currPos.Step(dir);
                 if (values[possiblePos.x, possiblePos.y] == 0) {
-                    objectRepr = '3';
                     return dir.Opposite();
                 }
                 if (values[currPos.x, currPos.y] == values[possiblePos.x, possiblePos.y] + 1) {
-                    objectRepr = '4'; 
                     return ShortestPath(values, new Position(possiblePos.x, possiblePos.y));
                 }
             }
-            objectRepr = '1';
             return pb006.Direction.West;
         }
 
@@ -161,7 +158,8 @@ namespace pb006
             initialPosition = new Position(position.x, position.y);
             Direction = agentDir;
             initialDirection = agentDir;
-            objectRepr = Direction == null ? 'o' : Direction.Value.ToSymbol();
+            //objectRepr = Direction == null ? 'Ѽ' : Direction.Value.ToSymbol();
+            objectRepr = '¥';
         }
 
         public override void Update(Dictionary<Direction, GameObject>  inputDir, List<List<GameObject>> board)
